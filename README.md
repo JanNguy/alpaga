@@ -1,7 +1,9 @@
 
-# 🌐 Deep Search V2
+# 🦙 Alapage
 
-Deep search function to be carried out as part of a hackathon organized by Hande and Hutek at Epitech Lyon.
+An Ollama web UI with hugging face and ollama market connections.
 
-But with better fonctional UX
+## ⚠️ Warning
+
+This project is in early development and may contain bugs or incomplete features. Use at your own risk.
 
