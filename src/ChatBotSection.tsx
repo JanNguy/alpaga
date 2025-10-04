@@ -1,16 +1,15 @@
 import "./App.css"
 import type { UserText } from "./interfaces";
 import { motion } from "motion/react";
-import { useState } from "react";
+import {useState } from "react";
 import { send_payload } from "./send_payload";
 
 export function ChatBotSection() {
     const [open, setOpen] = useState(false);
 
-    const conversation: UserText[] = [
-        { pathPP: "/assets/ChatGPT-Logo.svg", message: "Hello, how can I help you today? Hello, how can I help you today? Hello, how can I help you today? Hello, how can I help you today? Hello, how can I help you today? Hello, how can I help you today? Hello, how can I help you today? Hello, how can I help you today? Hello, how can I help you today? Hello, how can I help you today?", type: "ask" },
-        { pathPP: "/assets/user.png", message: "I'm looking for information about React components. I'm looking for information about React components. I'm looking for information about React components. I'm looking for information about React components. I'm looking for information about React components.", type: "response" }
-    ];
+    const [conversation, setConversation] = useState<UserText[]>([
+        { pathPP: "/assets/ChatGPT-Logo.svg", message: "Hello, how can I help you today?", type: "ask" },
+    ]);
 
     return (
         <>
@@ -36,20 +35,20 @@ export function ChatBotSection() {
                 {conversation.map((u, index) => (
                 <div key={index} className={`w-full flex ${u.type === "response" ? "justify-end" : "justify-start"}`}>
                     <div
-                    className={`flex items-start gap-3 w-[80%] h-auto border border-solid border-white mx-4 p-2 ${u.type === "response" ? "flex-row-reverse" : ""}`}
+                        className={`flex items-start gap-3 w-[80%] h-auto mx-4 p-2 ${u.type === "response" ? "flex-row-reverse" : ""}`}
                     >
-                    <img src={u.pathPP} alt="profile" className="w-10 h-10 rounded-full object-cover mt-1" />
-                    <p className="text-white p-2 break-words">{u.message}</p>
+                        <img src={u.pathPP} alt="profile" className="w-10 h-10 rounded-full object-cover mt-1" />
+                        <p className="text-white pt-3 break-words border border-white p-3 ml-2 rounded-md">{u.message}</p>
                     </div>
                 </div>
                 ))}
             </div>
 
-            <div className="flex flex-col mt-auto rounded-3xl bg-black mb-7 m-20 text-white p-5 pl-9 shrink-0">
+            <div className="flex flex-col mt-auto rounded-3xl bg-black mb-7 m-20 text-white p-2 pl-9 pr-4 shrink-0 w-[60%] mx-auto">
                 <form
                     onSubmit={(e) => {
                         e.preventDefault();
-                        send_payload(conversation, e);
+                        send_payload(conversation, e, setConversation);
                         (e.currentTarget.elements.namedItem('input') as HTMLInputElement).value = '';
                     }}
                     className="flex items-center gap-3 w-full"
