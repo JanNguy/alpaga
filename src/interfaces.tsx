@@ -1,5 +1,6 @@
 export interface UserText {
+    context: string;
     pathPP: string;
     message: string;
-    type: "ask" | "response";
+    type: "user" | "assistant";
 }

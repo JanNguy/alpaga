@@ -1,4 +1,4 @@
-import "./App.css"
+import "./css/App.css"
 import type { UserText } from "./interfaces";
 import { motion } from "motion/react";
 import {useState } from "react";
@@ -6,9 +6,10 @@ import { send_payload } from "./send_payload";
 
 export function ChatBotSection() {
     const [open, setOpen] = useState(false);
+    const [context, setContexte] = useState<string>("");
 
     const [conversation, setConversation] = useState<UserText[]>([
-        { pathPP: "/assets/ChatGPT-Logo.svg", message: "Hello, how can I help you today?", type: "ask" },
+        { pathPP: "/assets/ChatGPT-Logo.svg", message: "Hello, how can I help you today?", type: "ask", context: `${context}`},
     ]);
 
     return (
@@ -33,9 +34,9 @@ export function ChatBotSection() {
 
             <div className="flex-1 overflow-y-auto pt-16 px-4 space-y-4">
                 {conversation.map((u, index) => (
-                <div key={index} className={`w-full flex ${u.type === "response" ? "justify-end" : "justify-start"}`}>
+                <div key={index} className={`w-full flex ${u.type === "assistant" ? "justify-end" : "justify-start"}`}>
                     <div
-                        className={`flex items-start gap-3 w-[80%] h-auto mx-4 p-2 ${u.type === "response" ? "flex-row-reverse" : ""}`}
+                        className={`flex items-start gap-3 w-[80%] h-auto mx-4 p-2 ${u.type === "assistant" ? "flex-row-reverse" : ""}`}
                     >
                         <img src={u.pathPP} alt="profile" className="w-10 h-10 rounded-full object-cover mt-1" />
                         <p className="text-white pt-3 break-words border border-white p-3 ml-2 rounded-md">{u.message}</p>

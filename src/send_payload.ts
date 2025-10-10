@@ -1,6 +1,7 @@
 import type { UserText } from "./interfaces";
 import { ask_ollama } from "./ask_ollama";
 import type { Dispatch, SetStateAction } from "react";
+import { add_context } from "./add_context";
 
 export async function send_payload(payload_map: UserText[], e: React.FormEvent<HTMLFormElement>, setConversation: Dispatch<SetStateAction<UserText[]>>) {
     e.preventDefault();
@@ -8,24 +9,33 @@ export async function send_payload(payload_map: UserText[], e: React.FormEvent<H
     const input = form.querySelector('input') as HTMLInputElement | null;
     const message = input?.value ?? '';
 
-    const packet: UserText = {
+    if (input) input.value = '';
+    if (!message.trim()) return;
+
+    const user_packet: UserText = {
         pathPP: "/assets/user.png",
         message,
-        type: "response",
+        type: "user",
+        context: ""
     };
 
-    setConversation(prev => [...prev, packet]);
+    setConversation(prev => [...prev, user_packet]);
 
-    for (let i = payload_map.length - 1; i >= 0; i--) {
-        if (payload_map[i].type === "ask") {
-        console.log("last_usertext", payload_map[i]);
-        break;
-        }
-    }
+    const assistant_packet: UserText = {
+        pathPP: "/assets/ChatGPT-Logo.svg",
+        message: "",
+        type: "assistant",
+        context: ""
+    };
 
-    if (input) input.value = '';
-    const index = payload_map.length - 1;
+    const tempMap = [...payload_map, user_packet];
 
-    const response = await ask_ollama(payload_map, index, setConversation);
-    console.log("response_packet", response ?? payload_map[payload_map.length - 1]);
+    tempMap.push(assistant_packet);
+    add_context(tempMap);
+
+    const idx = tempMap.length - 1;
+
+    setConversation(prev => [...prev, assistant_packet]);
+
+    await ask_ollama(tempMap, idx, setConversation);
 }

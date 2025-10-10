@@ -1,4 +1,4 @@
-import "./App.css";
+import "./css/App.css";
 import ParticleSystem from "./HomeParticles";
 import { Link } from "react-router-dom";
 
