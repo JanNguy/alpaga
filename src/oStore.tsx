@@ -17,6 +17,7 @@ export function OStore() {
                 <div className="m-5">
                     <p className="text-6xl">ollama store</p>
                     <Link to="/chat_bot"><p>Return to chat bots section</p></Link>
+                    <Link to="/available"><p>Available models</p></Link>
                 </div>
                 <DisplayStoreHomeModels units={map_c}/>
             </div>

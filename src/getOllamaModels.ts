@@ -8,6 +8,8 @@ function fillDescName(names: string[], descs: string[]): Unit[] {
     const len2 = descs.length;
     const units: Unit[] = [];
 
+
+    console.log("%d,\n%d", len1, len2)
     if (len1 != len2) {
         ErrorLen(len1, len2);
     }

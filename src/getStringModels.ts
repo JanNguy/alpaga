@@ -5,8 +5,7 @@ export async function getStringModels(url?: string): Promise<string[]> {
 
     const html = await res.text();
     const matches = [...html.matchAll(/href="\/library\/([^"]+)/g)].map(m => m[1]);
-    const unique = [...new Set(matches)].sort();
 
-    return unique.map(s => `"${s}"`);
+    return matches.map(s => `${s}`);
 }
 
