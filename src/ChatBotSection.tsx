@@ -21,7 +21,15 @@ export function ChatBotSection() {
             initial={false}
             transition={{ duration: 0.35, ease: "easeInOut" }}
             >
-            <button className="p-4 text-white" onClick={() => setOpen(false)}>←</button>
+            <div className="flex flex-row items-center gap-2 py-4">
+                <button className="w-12 h-12 flex items-center justify-center text-white" onClick={() => setOpen(false)}>←</button>
+                <button className="w-12 h-12 flex items-center justify-center text-white">
+                    <img src="/assets/ollama.svg" className="w-8 h-8" alt="Ollama" style={{ filter: "invert(1)" }} onClick={() => window.open("/ollama", "_blank")}/>
+                </button>
+                <button className="w-12 h-12 flex items-center justify-center text-white">
+                    <img src="/assets/hf-logo-pirate.svg" className="w-8 h-8" alt="HF Logo" />
+                </button>
+            </div>
             </motion.nav>
 
             <div className="flex-1 h-full bg-neutral-800 flex flex-col relative min-h-0">
