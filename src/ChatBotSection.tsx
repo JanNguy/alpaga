@@ -27,7 +27,7 @@ export function ChatBotSection() {
                     <img src="/assets/ollama.svg" className="w-8 h-8" alt="Ollama" style={{ filter: "invert(1)" }} onClick={() => window.open("/ollama", "_blank")}/>
                 </button>
                 <button className="w-12 h-12 flex items-center justify-center text-white">
-                    <img src="/assets/hf-logo-pirate.svg" className="w-8 h-8" alt="HF Logo" />
+                    <img src="/assets/hf-logo-pirate.svg" className="w-8 h-8" alt="HF Logo" onClick={() => window.open("/hs", "_blank")}/>
                 </button>
             </div>
             </motion.nav>

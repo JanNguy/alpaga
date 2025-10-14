@@ -4,11 +4,13 @@ import { ChatBotSection } from "./ChatBotSection";
 import Home from "./Home";
 import {OStore} from "./oStore";
 import { ListAvailableModel } from "./available";
+import { HStore } from "./HStore";
 
 export const router = createBrowserRouter([
     {path: "/", element: <Home/>},
     {path: "/chat_bot", element: <ChatBotSection/>},
     {path: "/ollama", element: <OStore/>},
+    {path: "/hs", element: <HStore/>},
     {path: "/available", element: <ListAvailableModel/>}
 ])
 
