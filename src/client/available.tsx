@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "../css/App.css";
 import ollama, { type ListResponse } from "ollama";
 import { Link } from "react-router-dom";
+import { delete_model } from "../call-manager/delete_model";
 
 export function ListAvailableModel() {
     const [models, setModels] = useState<ListResponse["models"]>([]);
@@ -43,6 +44,12 @@ export function ListAvailableModel() {
                         </p>
                         <p className="text-sm text-gray-500">
                             {model.details.family}
+                        </p>
+                        <p
+                            className="ml-auto inline-block text-sm font-medium text-white bg-gray-900 border border-gray-900 px-3 py-1.5 rounded-lg"
+                            onClick={() => delete_model(model.name)}
+                        >
+                            Delete
                         </p>
                     </div>
                 ))}
