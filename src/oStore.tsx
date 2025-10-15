@@ -12,6 +12,8 @@ export function OStore() {
     getOllamaModels().then(setMapC);
 
 
+    console.log(map_c);
+
     return (
         <>
             <div className="flex flex-col items-center mt-8">
