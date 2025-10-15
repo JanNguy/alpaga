@@ -1,4 +1,4 @@
-import type { UserText } from "./interfaces";
+import type { UserText } from "../utils/interfaces";
 
 export function add_context(p_map: UserText[]) {
     const l_index: number = p_map.length - 1;

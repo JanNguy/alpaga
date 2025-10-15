@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import "./css/App.css";
+import "../css/App.css";
 import ollama, { type ListResponse } from "ollama";
 import { Link } from "react-router-dom";
 

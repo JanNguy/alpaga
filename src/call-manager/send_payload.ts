@@ -1,4 +1,4 @@
-import type { UserText } from "./interfaces";
+import type { UserText } from "../utils/interfaces";
 import { ask_ollama } from "./ask_ollama";
 import type { Dispatch, SetStateAction } from "react";
 import { add_context } from "./add_context";

@@ -1,5 +1,5 @@
-import "./css/App.css";
-import ParticleSystem from "./HomeParticles";
+import "../css/App.css";
+import ParticleSystem from "../utils/HomeParticles";
 import { Link } from "react-router-dom";
 
 function Home() {

@@ -1,9 +1,9 @@
-import "./css/App.css";
-import type { UserText } from "./interfaces";
+import "../css/App.css";
+import type { UserText } from "../utils/interfaces";
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { send_payload } from "./send_payload";
-import { getAvailableModelNames } from "./getAvailableModels";
+import { send_payload } from "../call-manager/send_payload";
+import { getAvailableModelNames } from "../call-manager/getAvailableModels";
 
 export function ChatBotSection() {
     const [open, setOpen] = useState(false);

@@ -1,7 +1,7 @@
-import type { Unit } from "./interfaces";
+import type { Unit } from "../utils/interfaces";
 import { getStringModels } from "./getStringModels";
 import { getStringDescriptions } from "./getDescModels";
-import { ErrorLen } from "./ErrorLen";
+import { ErrorLen } from "../utils/ErrorLen";
 
 function fillDescName(names: string[], descs: string[]): Unit[] {
     const len1 = names.length;

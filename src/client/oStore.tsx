@@ -1,7 +1,7 @@
-import type { Unit } from "./interfaces";
+import type { Unit } from "../utils/interfaces";
 import { useState } from "react";
-import { getOllamaModels } from "./getOllamaModels";
-import "./css/App.css";
+import { getOllamaModels } from "../call-manager/getOllamaModels";
+import "../css/App.css";
 import { DisplayStoreHomeModels } from "./DisplayStoreHomeModels";
 import { Link } from "react-router-dom";
 

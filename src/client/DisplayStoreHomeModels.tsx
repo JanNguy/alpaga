@@ -1,5 +1,5 @@
-import "./css/App.css";
-import type { Unit } from "./interfaces";
+import "../css/App.css";
+import type { Unit } from "../utils/interfaces";
 import ollama from "ollama/browser";
 import { useMemo, useState, useEffect } from "react";
 import ollamaNode, { type ListResponse } from "ollama";

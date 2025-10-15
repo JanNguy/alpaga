@@ -1,5 +1,5 @@
 import ollama from "ollama";
-import type { UserText } from "./interfaces";
+import type { UserText } from "../utils/interfaces";
 import type { Dispatch, SetStateAction } from "react";
 
 export async function ask_ollama(
