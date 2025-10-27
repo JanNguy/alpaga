@@ -1,3 +1,9 @@
+#   ⚠️ Warning
+
+This branch serves as a dev branch for the Discord storage part.
+The main goal is to store data by storing encrypted data in Discord chat.
+This part fit in my "Driscord" project (Drive + Dicord = Driscord)
+
 # 🦙 Alpaga
 
 Alpaga is a local UX for Ollama. The goal is to provide a clean interface, conversation history, and real‑time listing of your locally available Ollama models.
